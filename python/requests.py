@@ -16,11 +16,12 @@ class Request:
         }
         try:
             r = requests.post(url = self.__endpoint, params = data, headers=self.__headers)
-            print(r.raise_for_status())
-            data = r.json()
-            print(data)
-        except():
-            print("Error request!")
+        except:
+            print("Request Error!")
+        
+        if(r.status_code != 200):
+            print("Error en request")
+            print(r.json()["errors"])
 
 r = Request()
 r.sendSms("+5842449840875","holis")
