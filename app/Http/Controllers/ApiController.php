@@ -30,7 +30,7 @@ class ApiController extends Controller
             ],
         ]);
         if ($fields->fails()) {
-            return response()->json(["errors" => $fields->errors()->first()]);
+            return response()->json(["errors" => $fields->errors()->first()],422);
         }
         $fields = $fields->validated();
 
