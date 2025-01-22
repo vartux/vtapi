@@ -29,9 +29,8 @@ class ApiController extends Controller
                 'regex:/^\+58\d{10}$/', // Valida el formato +58 seguido de 10 dígitos
             ],
         ]);
-
         if ($fields->fails()) {
-            return response()->json(["errors" => $fields->errors()->first()],422);
+            return response()->json(["errors" => $fields->errors()->first()]);
         }
         $fields = $fields->validated();
 
