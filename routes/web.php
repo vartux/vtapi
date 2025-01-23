@@ -12,6 +12,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/tokens/create', function () {
     $token = Auth::user()->createToken("firsttoken");
-
     return ['token' => $token->plainTextToken];
-});
+})->middleware("auth");
